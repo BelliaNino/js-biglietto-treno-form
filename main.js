@@ -5,6 +5,9 @@ const btnEl = document.querySelector(`btn`);
 const formEl = document.querySelector(`form`)
 
 const prezzoEl = document.getElementById(`prezzo`)
+const cardPriceEl = document.getElementById(`cardPrice`)
+const amountEl = document.getElementById(`amount`)
+
 
 //aggiungere submit al form
 
@@ -30,17 +33,17 @@ formEl.addEventListener(`submit`, function (e) {
     // definire i parametri per gli sconti in base all'età
     if (ageEl.value < 18) {
 
-        message = `Get 20% off`
+        message = `Offerta Under18. (-20%)`
         total = price - (price * 0.2)
 
     } else if (ageEl.value > 64) {
 
-        message = `Get 40% off`
+        message = `Offerta Over65 (-40%)`
         total = price - (price * 0.4)
 
     } else {
 
-        message = `You don't have any discount`
+        message = `Biglietto standard`
         total = price
     }
 
@@ -49,8 +52,12 @@ formEl.addEventListener(`submit`, function (e) {
     console.log(total.toFixed(2) + " " + `€`);
 
 
+    const amountEl = document.getElementById("amount");
+    amountEl.textContent = `Tratta: €${price} - ${message} - Totale: €${total.toFixed(2)}`;
 
 })
+
+
 //input element
 const nomEl = document.getElementById(`nom`)
 const surEl = document.getElementById(`sur`)
@@ -93,7 +100,7 @@ formEl.addEventListener("submit", function (e) {
     seatEl.textContent = spot;
     coachEl.textContent = vag;
 
-
-
 });
+
+
 
